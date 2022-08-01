@@ -1,9 +1,10 @@
 import Layout from "../layout/Layout";
 import Producto from "../components/Producto";
 import useQuiosco from "../hooks/useQuiosco";
+import Spinner from "../components/Spinner";
 
 export default function Home() {
-  const { categoriaActual } = useQuiosco();
+  const { categoriaActual, cargando } = useQuiosco();
   return (
     <Layout pagina={`${categoriaActual?.nombre}`}>
       <h1 className="md:text-4xl text-3xl font-black">
@@ -17,6 +18,7 @@ export default function Home() {
           <Producto key={producto.id} producto={producto} />
         ))}
       </div>
+      {cargando && (<Spinner /> )}
     </Layout>
   );
 }

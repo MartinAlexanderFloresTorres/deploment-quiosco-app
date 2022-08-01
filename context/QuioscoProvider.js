@@ -14,15 +14,18 @@ const QuioscoProvider = ({ children }) => {
   const router = useRouter();
   const [nombre, setNombre] = useState("");
   const [total, setTotal] = useState(0);
+  const [cargando, setCargando] = useState(false)
 
   // consultas
   const obtenerCategorias = async () => {
     try {
+      setCargando(true)
       const { data } = await axios("/api/categorias");
       setCategorias(data);
     } catch (error) {
       console.log(error);
     }
+    setCargando(false)
   };
 
   // useEffect
@@ -127,6 +130,7 @@ const QuioscoProvider = ({ children }) => {
         setNombre,
         pedirOrden,
         total,
+        cargando
       }}
     >
       {children}
