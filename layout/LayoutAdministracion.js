@@ -17,6 +17,12 @@ const LayoutAdministracion = ({ children, pagina }) => {
       </Head>
 
       <main className="contenido">
+        <button
+          className="fixed bottom-5 right-5 bg-indigo-600 hover:bg-indigo-700 cursor-pointer block w-fit z-10 transition-colors uppercase shadow-md px-5 py-2 rounded-md text-white font-bold"
+          onClick={() => router.push("/")}
+        >
+          Regresar
+        </button>
         <div className="w-full mb-5 text-center">
           <button className="pt-5 " onClick={() => router.push("/")}>
             <Image

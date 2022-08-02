@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
-import axios from "axios";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const OrdenesContext = createContext();
 
@@ -48,14 +49,20 @@ const OrdenesProvider = ({ children }) => {
       consultarOrdenerApi();
     }
   }, [pathname]);
-  
+
   // entregar
   const handleEntregar = async (id) => {
     try {
       await axios.put("/api/pedidos", { id });
       consultarOrdenerApi();
+      toast.success("Completado Correctamente", {
+        autoClose: 2000,
+      });
     } catch (error) {
       console.log(error);
+      toast.error("Intente Nuevamente", {
+        autoClose: 2000,
+      });
     }
   };
 
@@ -64,8 +71,14 @@ const OrdenesProvider = ({ children }) => {
     try {
       await axios.delete(`/api/pedidos?id=${id}`);
       consultarOrdenerApi();
+      toast.success("Eliminado Correctamente", {
+        autoClose: 2000,
+      });
     } catch (error) {
       console.log(error);
+      toast.error("Intente Nuevamente", {
+        autoClose: 2000,
+      });
     }
   };
 

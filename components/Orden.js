@@ -41,7 +41,7 @@ const Orden = ({ orden }) => {
                 disabled={loadingPut}
                 className="text-sm w-full rounded bg-green-500 hover:bg-green-600 transition-colors px-5 py-2 text-white border capitalize font-bold"
               >
-                {loadingPut ? "Entregando..." : "Entregar"}
+                {loadingPut ? "Completando..." : "Completar"}
               </button>
             )}
             <button

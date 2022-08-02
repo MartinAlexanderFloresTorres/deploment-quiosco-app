@@ -54,7 +54,7 @@ const Total = () => {
         </div>
       </form>
       <Link href={"/administracion"}>
-        <a className="bg-indigo-600 hover:bg-indigo-700 cursor-pointer block w-fit absolute bottom-5 right-5 z-10 transition-colors uppercase shadow-md px-5 py-2 rounded-md text-white font-bold">
+        <a className="bg-indigo-600 hover:bg-indigo-700 cursor-pointer block w-fit fixed bottom-5 right-5 z-10 transition-colors uppercase shadow-md px-5 py-2 rounded-md text-white font-bold">
           Administrar Ordenes
         </a>
       </Link>
