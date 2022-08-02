@@ -1,14 +1,14 @@
 import Layout from "../layout/Layout";
 import Producto from "../components/Producto";
 import useQuiosco from "../hooks/useQuiosco";
-import Spinner from "../components/Spinner";
+import Preload from "../components/Preload";
 
 export default function Home() {
   const { categoriaActual, cargando } = useQuiosco();
   return (
-    <Layout pagina={`${categoriaActual?.nombre}`}>
+    <Layout pagina={`${categoriaActual?.nombre || "Bienvenido"}`}>
       <h1 className="md:text-4xl text-3xl font-black">
-        {categoriaActual?.nombre}
+        {categoriaActual?.nombre || "Productos"}
       </h1>
       <p className="text-xl font-semibold my-6">
         Elije y personaliza tu pedido a continuación
@@ -17,8 +17,23 @@ export default function Home() {
         {categoriaActual?.productos?.map((producto) => (
           <Producto key={producto.id} producto={producto} />
         ))}
+        {cargando && (
+          <>
+            <Preload />
+            <Preload />
+            <Preload />
+            <Preload />
+            <Preload />
+            <Preload />
+            <Preload />
+            <Preload />
+            <Preload />
+            <Preload />
+            <Preload />
+            <Preload />
+          </>
+        )}
       </div>
-      {cargando && (<Spinner /> )}
     </Layout>
   );
 }

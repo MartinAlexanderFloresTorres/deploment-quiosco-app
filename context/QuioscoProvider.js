@@ -11,21 +11,23 @@ const QuioscoProvider = ({ children }) => {
   const [producto, setProducto] = useState({});
   const [modal, setModal] = useState(false);
   const [pedidos, setPedidos] = useState([]);
-  const router = useRouter();
   const [nombre, setNombre] = useState("");
   const [total, setTotal] = useState(0);
-  const [cargando, setCargando] = useState(false)
+  const [cargando, setCargando] = useState(false);
+  const [loadingOrden, setLoadingOrden] = useState(false);
+
+  const router = useRouter();
 
   // consultas
   const obtenerCategorias = async () => {
     try {
-      setCargando(true)
+      setCargando(true);
       const { data } = await axios("/api/categorias");
       setCategorias(data);
     } catch (error) {
       console.log(error);
     }
-    setCargando(false)
+    setCargando(false);
   };
 
   // useEffect
@@ -92,9 +94,10 @@ const QuioscoProvider = ({ children }) => {
   const pedirOrden = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/ordenes", {
+      setLoadingOrden(true);
+      await axios.post("/api/ordenes", {
         nombre,
-        fecha: Date.now().toString(),
+        fecha: new Date(),
         total,
         pedidos,
       });
@@ -104,11 +107,14 @@ const QuioscoProvider = ({ children }) => {
       toast.success("Pedido Realizado Correctamente", {
         autoClose: 2000,
       });
-      setTimeout(() => {
-        router.push("/");
-      }, 2000);
+      router.push("/");
     } catch (error) {
       console.log(error);
+      toast.error("Intente mas tarde", {
+        autoClose: 2000,
+      });
+    } finally {
+      setLoadingOrden(false);
     }
   };
   return (
@@ -130,7 +136,8 @@ const QuioscoProvider = ({ children }) => {
         setNombre,
         pedirOrden,
         total,
-        cargando
+        cargando,
+        loadingOrden,
       }}
     >
       {children}

@@ -43,7 +43,11 @@ const ModalProducto = () => {
       </div>
       <div className="md:w-2/3">
         <div className="w-full text-right">
-          <button title="Cerrar" className="absolute top-1 right-1 bg-white rounded-full p-2" onClick={() => handleChangeModal()}>
+          <button
+            title="Cerrar"
+            className="absolute top-1 right-1 bg-white rounded-full p-2"
+            onClick={() => handleChangeModal()}
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -60,7 +64,9 @@ const ModalProducto = () => {
             </svg>
           </button>
         </div>
-        <h2 className="md:text-3xl text-xl font-bold mt-5">{producto?.nombre}</h2>
+        <h2 className="md:text-3xl text-xl font-bold mt-5">
+          {producto?.nombre}
+        </h2>
         <p className="mt-5 font-black md:text-5xl text-2xl text-amber-500">
           {formatearDinero(producto?.precio)}
         </p>

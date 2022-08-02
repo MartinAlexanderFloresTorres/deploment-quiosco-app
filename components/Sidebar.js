@@ -3,9 +3,10 @@ import Image from "next/image";
 import useQuiosco from "../hooks/useQuiosco";
 import Categoria from "./Categoria";
 import { useRouter } from "next/router";
+import PreloadCategorias from "./PreloadCategorias";
 
 const Sidebar = () => {
-  const { categorias } = useQuiosco();
+  const { categorias, cargando } = useQuiosco();
   const router = useRouter();
   const [menu, setMenu] = useState(false);
   return (
@@ -17,6 +18,7 @@ const Sidebar = () => {
             height={100}
             src="/assets/img/logo.svg"
             alt="logo"
+            priority
           />
         </button>
         <button className="p-3 menu mt-5" onClick={() => setMenu(!menu)}>
@@ -63,6 +65,16 @@ const Sidebar = () => {
               categoria={categoria}
             />
           ))}
+        {cargando && (
+          <>
+            <PreloadCategorias />
+            <PreloadCategorias />
+            <PreloadCategorias />
+            <PreloadCategorias />
+            <PreloadCategorias />
+            <PreloadCategorias />
+          </>
+        )}
       </nav>
     </>
   );

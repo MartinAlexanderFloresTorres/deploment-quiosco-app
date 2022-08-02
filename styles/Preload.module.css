@@ -1,0 +1,71 @@
+.animacion_container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+.categorias{
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.categorias .bg{
+  min-height: 60px;
+  margin-bottom: 0;
+  animation-duration: 16s;
+}
+.animacion {
+  width: 100%;
+  background: white;
+  border: 1px solid #e5e6e9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bg {
+  animation-duration: 8s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: cargando;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(
+    to right,
+    #eeeeee 8%,
+    #dddddd 18%,
+    #eeeeee 33%
+    );
+    min-height: 20px;
+    margin-bottom: 10px;
+  border-radius: 5px;
+}
+.ordenes .bg{
+  animation-duration: 3s;
+  padding: 20px;
+  min-height: 50px;
+}
+.height {
+  min-height: 400px;
+  margin-bottom: 10px;
+}
+@keyframes cargando {
+  0% {
+    background-position: -769px 0;
+  }
+  100% {
+    background-position: 769px 0;
+  }
+}
+@media (max-width: 1150px) {
+  .height {
+    min-height: 300px;
+  }
+}
+@media (max-width: 930px) {
+  .height {
+    min-height: 200px;
+  }
+}

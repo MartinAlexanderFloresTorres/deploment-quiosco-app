@@ -6,14 +6,15 @@ const Producto = ({ producto }) => {
   const { nombre, imagen, precio } = producto;
   const { handleClickProducto, handleChangeModal } = useQuiosco();
   return (
-    <div className="border p-3 text-center productos-item">
+    <div className="border rounded-md p-3 text-center productos-item">
       <div className="productos-imagen">
         <Image
           src={`/assets/img/${imagen}.jpg`}
           width={400}
           height={500}
           alt="Imagen"
-          property=""
+          className="rounded-md"
+          priority
         />
       </div>
       <div className="pt-5 producto-info">

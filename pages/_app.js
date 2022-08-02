@@ -1,13 +1,16 @@
 import { QuioscoProvider } from "../context/QuioscoProvider";
-import {ToastContainer} from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/globals.css";
+import { OrdenesProvider } from "../context/OrdenesProvider";
 
 function MyApp({ Component, pageProps }) {
   return (
     <QuioscoProvider>
-      <Component {...pageProps} />
-      <ToastContainer autoClose={2000} />
+      <OrdenesProvider>
+        <Component {...pageProps} />
+        <ToastContainer autoClose={2000} />
+      </OrdenesProvider>
     </QuioscoProvider>
   );
 }

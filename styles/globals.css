@@ -9,7 +9,11 @@
   border-radius: 5px;
   width: 12px;
 }
-
+input:disabled,
+button:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 .contenido {
   max-width: 2600px;
   margin: 0 auto;
@@ -133,5 +137,30 @@
   }
   .productos-grid {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 350px) {
+  .ordenes_header{
+    flex-direction: column;
+  }
+  .ordenes_botones{
+    flex-direction: column;
+    width: 100%;
+  }
+  .pedido_titulo{
+    text-align: center;
+  }
+  .ordenes_botones button{
+    max-width: 100%;
+    width: 100%;
+  }
+  .pedido_dinero{
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .pedido_dinero div{
+    justify-content: center;
+    text-align: center;
   }
 }

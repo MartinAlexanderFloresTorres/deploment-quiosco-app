@@ -28,4 +28,5 @@ model Orden{
   fecha String
   total Float
   pedido Json
+  entregado Boolean @default(dbgenerated("false"))
 }
