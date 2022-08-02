@@ -11,6 +11,7 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 Visitalo: https://quioscoapp-white.vercel.app
 
 ![Captura de pantalla (262)](https://user-images.githubusercontent.com/91045865/182286048-105d745e-ebf0-417d-897a-27bf59184dd7.png)
